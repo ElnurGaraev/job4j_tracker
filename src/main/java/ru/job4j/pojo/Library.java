@@ -15,19 +15,22 @@ public class Library {
             Book bk = books[index];
             System.out.println(bk.getName() + " - " + bk.getCount() + "pages.");
         }
+        System.out.println();
         Book cleanCode = new Book("Clean code", 101);
         books[3] = cleanCode;
         for (int index = 0; index < books.length; index++) {
             Book bk = books[index];
             System.out.println(bk.getName() + " - " + bk.getCount() + "pages.");
         }
+        System.out.println();
+        Book temp = books[0];
+        books[0] = books[3];
+        books[3] = temp;
         for (int index = 0; index < books.length; index++) {
-            Book temp = books[0];
-            books[0] = books[3];
-            books[3] = temp;
             Book bk = books[index];
             System.out.println(bk.getName() + " - " + bk.getCount() + "pages.");
         }
+        System.out.println();
         for (int index = 0; index < books.length; index++) {
             Book bk = books[index];
             if ("Clean code".equals(bk.getName())) {
