@@ -41,19 +41,4 @@ public class Item {
         this.name = name;
     }
 
-    public void print() {
-        System.out.println("ID: " + id);
-        System.out.println("Name: " + name);
-    }
-
-    public static void main(String[] args) {
-        Item first = new Item();
-        first.print();
-        System.out.println();
-        Item second = new Item("ABC");
-        second.print();
-        System.out.println();
-        Item third = new Item(111, "ABCD");
-        third.print();
-    }
 }
