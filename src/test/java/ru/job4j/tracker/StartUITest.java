@@ -62,7 +62,7 @@ public class StartUITest {
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString()).isEqualTo(
-                "Menu." + System.lineSeparator()
+                "Menu:" + System.lineSeparator()
                         + "0. Exit program" + System.lineSeparator()
         );
     }
@@ -80,6 +80,7 @@ public class StartUITest {
                         + "0. Show all items" + ln
                         + "1. Exit program" + ln
                         + "=== Show all items ===" + ln
+                        + "Хранилище еще не содержит заявок." + ln
                         + "Menu:" + ln
                         + "0. Show all items" + ln
                         + "1. Exit program" + ln
@@ -100,10 +101,7 @@ public class StartUITest {
                         + "0. Find item by id" + ln
                         + "1. Exit program" + ln
                         + "=== Find item by id ===" + ln
-                        + "Item{"
-                        + "id=" + one.getId()
-                        + ", name =' " + one.getName() + '\''
-                        + "}" + ln
+                        + one + ln
                         + "Menu:" + ln
                         + "0. Find item by id" + ln
                         + "1. Exit program" + ln
@@ -124,10 +122,7 @@ public class StartUITest {
                         + "0. Find items by name" + ln
                         + "1. Exit program" + ln
                         + "=== Find items by names ===" + ln
-                        + "Item{"
-                        + "id=" + one.getId()
-                        + ", name =' " + one.getName() + '\''
-                        + "}" + ln
+                        + one + ln
                         + "Menu:" + ln
                         + "0. Find items by name" + ln
                         + "1. Exit program" + ln
