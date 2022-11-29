@@ -7,7 +7,7 @@ public class FindEl {
             value[index].equals(key);
             rsl = index;
             break;
-            }
+        }
         if (rsl == -1) {
             throw new ElementNotFoundException("rsl could not be -1");
         }
