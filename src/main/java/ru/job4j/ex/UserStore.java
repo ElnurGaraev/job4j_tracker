@@ -31,9 +31,10 @@ public class UserStore {
             if (validate(user)) {
                 System.out.println("This user has an access");
             }
-        } catch (UserNotFoundException ex) {
-            ex.printStackTrace();
-            System.out.println("Name is not found");
+        } catch (UserInvalidException ie) {
+            ie.printStackTrace();
+        } catch (UserNotFoundException ne) {
+            ne.printStackTrace();
         }
     }
 }
