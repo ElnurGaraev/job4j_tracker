@@ -9,6 +9,7 @@ public class FindEl {
             } else {
                 value[index].equals(key);
                 rsl = index;
+                break;
             }
         }
         return rsl;
