@@ -17,7 +17,7 @@ public class FindEl {
 
     public static void main(String[] args) {
         try {
-            System.out.println(indexOf(new String[]{"One", "two", "three"}, "two"));
+            System.out.println(indexOf(new String[]{"One", "two", "three"}, "One"));
         } catch (ElementNotFoundException e) {
             e.printStackTrace();
         }
