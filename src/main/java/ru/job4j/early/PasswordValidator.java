@@ -5,71 +5,47 @@ public class PasswordValidator {
         if (password == null) {
             throw new IllegalArgumentException("Password can't be null.");
         }
-        if (password.length() < 8 || password.length() > 32) {
+        if (password.length() <= 8 || password.length() >= 32) {
             throw new IllegalArgumentException("Password should be lenght [8, 32].");
         }
-        if (!upperCase(password)) {
+        char[] symbol = password.toCharArray();
+        boolean upperCase = false;
+        boolean lowerCase = false;
+        boolean figure = false;
+        boolean specialSymbol = false;
+        for (char symb : symbol) {
+            if (Character.isUpperCase(symb)) {
+                upperCase = true;
+            }
+            if (Character.isLowerCase(symb)) {
+                lowerCase = true;
+            }
+            if (Character.isDigit(symb)) {
+                figure = true;
+            }
+            if (!Character.isLetterOrDigit(symb)) {
+                specialSymbol = true;
+            }
+        }
+        if (!upperCase) {
             throw new IllegalArgumentException("Password should contain at least one uppercase letter.");
         }
-        if (!lowerCase(password)) {
+        if (!lowerCase) {
             throw new IllegalArgumentException("Password should contain at least one lowercase letter.");
         }
-        if (!isDigit(password)) {
+        if (!figure) {
             throw new IllegalArgumentException("Password should contain at least one figure.");
         }
-        if (!isNotLetterOrDigit(password)) {
+        if (!specialSymbol) {
             throw new IllegalArgumentException("Password should contain at least one special symbol.");
         }
-        if (substring(password)) {
-            throw new IllegalArgumentException("Password shouldn't contain substrings:qwerty, 12345, "
-                    + "password, admin, user.");
-        }
-        return password;
-    }
-
-    public static boolean upperCase(String name) {
-        for (char symbol : name.toCharArray()) {
-            if (Character.isUpperCase(symbol)) {
-                return true;
-            }
-        }
-        return true;
-    }
-
-    public static boolean lowerCase(String name) {
-        for (char symbol : name.toCharArray()) {
-            if (Character.isLowerCase(symbol)) {
-                return true;
-            }
-        }
-        return true;
-    }
-
-    public static boolean isDigit(String name) {
-        for (char symbol : name.toCharArray()) {
-            if (Character.isDigit(symbol)) {
-                return true;
-            }
-        }
-        return true;
-    }
-
-    public static boolean isNotLetterOrDigit(String name) {
-        for (char symbol : name.toCharArray()) {
-            if (!Character.isLetterOrDigit(symbol)) {
-                return true;
-            }
-        }
-        return true;
-    }
-
-    public static boolean substring(String name) {
         String[] array = {"qwerty", "12345", "password", "admin", "user"};
         for (String str : array) {
-            if (name.toLowerCase().contains(str)) {
-                return true;
+            if (password.toLowerCase().contains(str)) {
+                throw new IllegalArgumentException("Password shouldn't contain substrings:qwerty, 12345, "
+                        + "password, admin, user.");
             }
         }
-        return true;
+        return password;
     }
 }
