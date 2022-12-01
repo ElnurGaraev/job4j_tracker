@@ -5,7 +5,7 @@ public class PasswordValidator {
         if (password == null) {
             throw new IllegalArgumentException("Password can't be null.");
         }
-        if (password.length() <= 8 || password.length() >= 32) {
+        if (password.length() < 8 || password.length() > 32) {
             throw new IllegalArgumentException("Password should be lenght [8, 32].");
         }
         char[] symbol = password.toCharArray();
