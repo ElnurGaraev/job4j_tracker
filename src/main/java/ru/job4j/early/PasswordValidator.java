@@ -26,6 +26,9 @@ public class PasswordValidator {
             if (!Character.isLetterOrDigit(symb)) {
                 specialSymbol = true;
             }
+            if (upperCase && lowerCase && figure && specialSymbol) {
+                break;
+            }
         }
         if (!upperCase) {
             throw new IllegalArgumentException("Password should contain at least one uppercase letter.");
