@@ -26,8 +26,8 @@ public class JobTest {
     public void whenCompatorByNameAndPrority() {
         Comparator<Job> cmpNamePriority = new JobByName().thenComparing(new JobByPriority());
         int rsl = cmpNamePriority.compare(
-                new Job("Fix bug", 1),
-                new Job("Impl task", 0)
+                new Job("Impl task", 0),
+                new Job("Impl task", 1)
         );
         assertThat(rsl).isLessThan(0);
     }
