@@ -64,14 +64,14 @@ public class AnalyzeByMap {
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
                 map.put(subject.name(), map.getOrDefault(subject.name(), 0) + subject.score());
-                for (String name : map.keySet()) {
-                    int score = map.get(name);
-                    Label label = new Label(name, score);
-                    labels.add(label);
-                }
-                labels.sort(Comparator.naturalOrder());
             }
         }
+        for (String name : map.keySet()) {
+            int score = map.get(name);
+            Label label = new Label(name, score);
+            labels.add(label);
+        }
+        labels.sort(Comparator.naturalOrder());
         return labels.get(labels.size() - 1);
     }
 }
