@@ -1,4 +1,4 @@
-package ru.job4j.collection;
+package ru.job4j.lambda;
 
 public class Attachment {
     private String name;
@@ -19,7 +19,7 @@ public class Attachment {
 
     @Override
     public String toString() {
-        return "Attachment{"
+        return "{"
                 + "name='" + name + '\''
                 + ", size=" + size
                 + '}';
