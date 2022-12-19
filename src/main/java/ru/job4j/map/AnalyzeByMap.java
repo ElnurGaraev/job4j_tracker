@@ -8,7 +8,7 @@ public class AnalyzeByMap {
         int num = 0;
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                sum += subject.score();
+                sum += subject.getScore();
                 num++;
             }
         }
@@ -20,7 +20,7 @@ public class AnalyzeByMap {
         for (Pupil pupil : pupils) {
             double sum = 0;
             for (Subject subject : pupil.subjects()) {
-                sum += subject.score();
+                sum += subject.getScore();
             }
             Label label = new Label(pupil.name(), sum / pupil.subjects().size());
             average.add(label);
@@ -33,7 +33,7 @@ public class AnalyzeByMap {
         LinkedHashMap<String, Integer> map = new LinkedHashMap<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                map.put(subject.name(), map.getOrDefault(subject.name(), 0) + subject.score());
+                map.put(subject.getName(), map.getOrDefault(subject.getName(), 0) + subject.getScore());
             }
         }
         for (String name : map.keySet()) {
@@ -49,7 +49,7 @@ public class AnalyzeByMap {
         for (Pupil pupil : pupils) {
             double sum = 0;
             for (Subject subject : pupil.subjects()) {
-                sum += subject.score();
+                sum += subject.getScore();
                 Label label = new Label(pupil.name(), sum);
                 labels.add(label);
             }
@@ -63,7 +63,7 @@ public class AnalyzeByMap {
         List<Label> labels = new ArrayList<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                map.put(subject.name(), map.getOrDefault(subject.name(), 0) + subject.score());
+                map.put(subject.getName(), map.getOrDefault(subject.getName(), 0) + subject.getScore());
             }
         }
         for (String name : map.keySet()) {
