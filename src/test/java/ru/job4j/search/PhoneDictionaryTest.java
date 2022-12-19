@@ -11,21 +11,21 @@ public class PhoneDictionaryTest {
 
     @Test
     public void whenFindByName() {
-        PhoneDictionary phones = new PhoneDictionary();
+        var phones = new PhoneDictionary();
         phones.add(
                 new Person("Petr", "Arsentev", "534872", "Bryansk")
         );
-        ArrayList<Person> persons = phones.find("Petr");
+        var persons = phones.find("Petr");
         assertThat(persons.get(0).getSurname()).isEqualTo("Arsentev");
     }
 
     @Test
     public void whenNotFindByName() {
-        PhoneDictionary phones = new PhoneDictionary();
+        var phones = new PhoneDictionary();
         phones.add(
                 new Person("Petr", "Arsentev", "534872", "Bryansk")
         );
-        ArrayList<Person> persons = phones.find("Kirill");
+        var persons = phones.find("Kirill");
         assertThat(persons.isEmpty()).isTrue();
     }
 }
