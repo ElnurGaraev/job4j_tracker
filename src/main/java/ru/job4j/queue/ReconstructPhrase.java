@@ -14,7 +14,6 @@ public class ReconstructPhrase {
 
     private String getEvenElements() {
         StringBuilder st = new StringBuilder();
-        String rsl;
         int size = evenElements.size();
         for (int i = 0; i < size; i++) {
             if (i % 2 == 0) {
@@ -24,21 +23,18 @@ public class ReconstructPhrase {
                 evenElements.poll();
             }
         }
-        rsl = st.toString();
-        return rsl;
+        return st.toString();
     }
 
     private String getDescendingElements() {
         Deque<Character> deque = new LinkedList<>(descendingElements);
         StringBuilder st = new StringBuilder();
-        String rsl;
         int size = descendingElements.size();
         for (int i = 0; i < size; i++) {
             st.append(deque.peekLast());
             deque.pollLast();
         }
-        rsl = st.toString();
-        return rsl;
+        return st.toString();
     }
 
     public String getReconstructPhrase() {
