@@ -22,8 +22,8 @@ public class SqlTracker implements Store {
     }
 
     private void init() {
-        try (InputStream in = SqlTracker.class.getClassLoader().
-                getResourceAsStream("app.properties")) {
+        try (InputStream in = SqlTracker.class.getClassLoader()
+                .getResourceAsStream("app.properties")) {
             Properties config = new Properties();
             config.load(in);
             Class.forName(config.getProperty("driver-class-name"));
@@ -51,10 +51,10 @@ public class SqlTracker implements Store {
                         Statement.RETURN_GENERATED_KEYS)) {
             statement.setString(1, item.getName());
             statement.setTimestamp(2, Timestamp.valueOf(item.getCreated()));
-            statement.executeQuery();
+            statement.executeUpdate();
             try (ResultSet resultSet = statement.getGeneratedKeys()) {
                 while (resultSet.next()) {
-                    item.setId(resultSet.getInt(1));
+                    item.setId(resultSet.getInt("id"));
                 }
             }
         } catch (Exception e) {
@@ -67,7 +67,7 @@ public class SqlTracker implements Store {
     public boolean replace(int id, Item item) {
         boolean rsl = false;
         try (PreparedStatement statement = cn.prepareStatement(
-                "UPDATE TABLE items SET name = ?, created = ? "
+                "UPDATE items SET name = ?, created = ? "
                         + "WHERE id = ?")) {
             statement.setString(1, item.getName());
             statement.setTimestamp(2, Timestamp.valueOf(item.getCreated()));
