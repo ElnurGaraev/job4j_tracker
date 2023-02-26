@@ -66,7 +66,7 @@ public class SqlTrackerTest {
         tracker.add(item);
         tracker.add(item2);
         List<Item> expected = List.of(item2);
-        assertThat(tracker.findByName("item")).isEqualTo(expected);
+        assertThat(tracker.findByName("item2")).isEqualTo(expected);
     }
 
     @Test
@@ -91,7 +91,7 @@ public class SqlTrackerTest {
         tracker.add(item);
         tracker.add(item2);
         tracker.add(item3);
-        assertThat(tracker.delete(item.getId())).isNull();
+        assertThat(tracker.delete(item.getId())).isTrue();
     }
 
     @Test
