@@ -32,6 +32,7 @@
             </properties>
         </profile>
     </profiles>
+
     <dependencies>
         <dependency>
             <groupId>org.hamcrest</groupId>
@@ -58,12 +59,6 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-            <version>3.23.1</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>42.5.0</version>
@@ -75,6 +70,7 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -142,14 +138,6 @@
                 <artifactId>liquibase-maven-plugin</artifactId>
                 <version>4.15.0</version>
                 <configuration>
-                    <propertyFile>db/liquibase.properties</propertyFile>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.liquibase</groupId>
-                <artifactId>liquibase-maven-plugin</artifactId>
-                <version>4.15.0</version>
-                <configuration>
                     <propertyFile>${liquibase.config}</propertyFile>
                 </configuration>
                 <executions>
@@ -165,3 +153,4 @@
         </plugins>
     </build>
 </project>
+
