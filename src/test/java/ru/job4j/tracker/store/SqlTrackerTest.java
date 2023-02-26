@@ -98,9 +98,9 @@ public class SqlTrackerTest {
     public void whenSaveItemsAndReplaceThenMustBeTheSame() {
         SqlTracker tracker = new SqlTracker(connection);
         Item item = new Item("item");
-        Item replace = new Item("item2");
+        Item item2 = new Item("item2");
         tracker.add(item);
-        tracker.replace(item.getId(), replace);
-        assertThat("item2").isEqualTo(item.getName());
+        tracker.replace(item.getId(), item2);
+        assertThat(tracker.findById(item.getId()).getName()).isEqualTo(item2.getName());
     }
 }
